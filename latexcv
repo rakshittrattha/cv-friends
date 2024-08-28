@@ -1,287 +1,102 @@
-%
-%Academic CV LaTeX Template
-% Author: Dubasi Pavan Kumar
-% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
-% License: MIT
-%
-% For errors, suggestions, or improvements, please contact:
-% Email: pavankumard.pg19.ma@nitp.ac.in
-%
+\documentclass{resume} % Use the custom resume.cls style
 
-
-
-\documentclass[a4paper,11pt]{article}
-
-% Package imports
-\usepackage{latexsym}
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{ragged2e}
-\usepackage[empty]{fullpage}
-\usepackage{wrapfig}
-\usepackage{lipsum}
-\usepackage{tabularx}
-\usepackage{titlesec}
-\usepackage{geometry}
-\usepackage{marvosym}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage{multicol}
-\usepackage{graphicx}
-\usepackage{cfr-lm}
-\usepackage[T1]{fontenc}
-\usepackage{fontawesome5}
-
-% Color definitions
-\definecolor{darkblue}{RGB}{0,0,139}
-
-% Page layout
-\setlength{\multicolsep}{0pt} 
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
-\setlength{\footskip}{5pt} % Addressing fancyhdr warning
-
-% Hyperlink setup (moved after fancyhdr to address warning)
-\usepackage[hidelinks]{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=darkblue,
-    filecolor=darkblue,
-    urlcolor=darkblue,
-}
-
-% Custom box settings
-\usepackage[most]{tcolorbox}
-\tcbset{
-    frame code={},
-    center title,
-    left=0pt,
-    right=0pt,
-    top=0pt,
-    bottom=0pt,
-    colback=gray!20,
-    colframe=white,
-    width=\dimexpr\textwidth\relax,
-    enlarge left by=-2mm,
-    boxsep=4pt,
-    arc=0pt,outer arc=0pt,
-}
-
-% URL style
-\urlstyle{same}
-
-% Text alignment
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Section formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
-
-% Custom commands
-\newcommand{\resumeItem}[2]{
-  \item{
-    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
-  }
-}
-
-\newcommand{\resumePOR}[3]{
-\vspace{0.5mm}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
-    \end{tabular*}
-    \vspace{-2mm}
-}
-
-\newcommand{\resumeSubheading}[4]{
-\vspace{0.5mm}\item
-    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & \textit{\footnotesize{#4}} \\
-        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
-    \end{tabular*}
-    \vspace{-2.4mm}
-}
-
-\newcommand{\resumeProject}[4]{
-\vspace{0.5mm}\item
-    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & \textit{\footnotesize{#3}} \\
-        \footnotesize{\textit{#2}} & \footnotesize{#4}
-    \end{tabular*}
-    \vspace{-2.4mm}
-}
-
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
-
-\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
-\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
-
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
-\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
-\newcommand{\cvsection}[1]{%
-\vspace{2mm}
-\begin{tcolorbox}
-    \textbf{\large #1}
-\end{tcolorbox}
-    \vspace{-4mm}
-}
-
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
-\newcolumntype{C}{>{\centering\arraybackslash}X}%
-
-% Commands for icon sizing and positioning
-\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
-\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
-
-% Font options
-\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
-\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
-\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
-\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
-\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
-\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
-\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
-\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
-\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
-\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+\usepackage[left=0.4 in,top=0.4in,right=0.4 in,bottom=0.4in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{RAKSHIT TRATTHA} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{+91 9541221151 \\ Jammu, India} 
+\address{\href{mailto:rtrattha@gmail.com}{Email} \\ 
+\href{https://github.com/rakshittrattha}{Github}}  %
 
 \begin{document}
-\headerfontiii
 
-% Header
-\begin{center}
-    {\Huge\textbf{RAKSHIT TRATTHA}}
-\end{center}
-\vspace{-6mm}
+%----------------------------------------------------------------------------------------
+%	OBJECTIVE
+%----------------------------------------------------------------------------------------
 
-\begin{center}
-    \small{
-    +91 9541221151 | \href{mailto:rtrattha@gmail.com}{rtrattha@gmail.com}
-    }
-\end{center}
-\vspace{-6mm}
+\begin{rSection}{OBJECTIVE}
 
-\begin{center}
-    \small{
-    \socialicon{\faGithub} \href{https://github.com/rakshittrattha}{rakshittrattha} | 
-    }
-\end{center}
-\vspace{-6mm}
-\begin{center}
-    \small{Jammu, Jammu and kashmir-, 184120}
-\end{center}
+{IT undergraduate at NIT Srinagar with a robust background in Data Structures and Algorithms, Operating Systems, Database Management Systems, and Object-Oriented Programming. Proficient in C, C++, Python, and full-stack web development, with intermediate expertise in machine learning.}
 
-\vspace{-4mm}
 
-\section{\textbf{Objective}}
-\vspace{1mm}
-\small{
-Seeking a challenging position in [your field] to leverage my expertise in [your key skills]. Aiming to contribute to innovative projects at the intersection of [your interests] and practical problem-solving in fields such as [specific areas of interest].
-}
-\vspace{-2mm}
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
 
-\section{\textbf{Education}}
-\vspace{-0.4mm}
-\resumeSubHeadingListStart
+\begin{rSection}{Education}
 
-\resumeSubheading
-{NIT Srinagar}{srinagar, Jammu and Kashmir}
-{Btec- ITE}{2022 - 2024}
-\resumeItemListStart
-\item GPA: 7.9
-\resumeItemListEnd
+{\bf National Institute of Technology}, Srinagar \hfill {Nov 2022 - present}\\
+{\small Bachelor of Technology(B-Tech) Information Technology} \hfill {CGPA: 7.9}
 
-\resumeSubheading
-{JK public school}{Jammu, Jammu and Kashmir}
-{Higher Secondary Education}{2022}
-\resumeItemListStart
-\item percentage: 84%
-\resumeItemListEnd
+{\bf JK Public School }, Srinagar\hfill {Pass-out - 2022} \\
+{\small 10+2} \hfill {Percentage: 84%}
+%Minor in Linguistics \smallskip \\
+%Member of Eta Kappa Nu \\
+%Member of Upsilon Pi Epsilon \\
 
-\resumeSubHeadingListEnd
-\vspace{-6mm}
 
-\section{\textbf{Projects}}
-\vspace{-0.4mm}
-\resumeSubHeadingListStart
+\end{rSection}
 
-\resumeProject
-  {Simple text editor:}
-  {Tools: python, tkinter, filedialog, messagebox, simpledialog, colorchooser}
-  {.}
-  {{}[\href{https://github.com/rakshittrattha/text-editor-using-python-tkinter}{\textcolor{darkblue}{\faGithub}}]}
-\resumeItemListStart
-  \item Saves the file as a text file.
-  \item Allows you to change the colour size and style of the font of the text.
-\resumeItemListEnd
+%----------------------------------------------------------------------------------------
+% TECHINICAL STRENGTHS	
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Technical SKILLS}
 
-\resumeProject
-  {Foodies (A dummy food delivery website):}
-  {Tools: List of tools and technologies used}
-  {.}
-  {{}[\href{https://github.com/rakshittrattha/dummy-food-delivery-website}{\textcolor{darkblue}{\faGithub}}]}
-\resumeItemListStart
-  \item A prototype website (frontend).
-\resumeItemListEnd
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{5ex}} l }
+Core & DSA, OS, DBMS, OOPs \\
+Programming & C, C++, Python\\
+Web Development & HTML, CSS, Javascript, MYSQL\\
+Tools &  Git, Github, Latex, Vscode, CodeBlocks\\
+Operating Systems& Windows, Ubuntu\\
+& \\
+& \\
+\end{tabular}\\
+\end{rSection}
 
-\resumeProject
-  {Guess the animal game:}
-  {Tools: python, tkinter, filedialog, messagebox}
-  {.}
-  {{}[\href{https://github.com/rakshittrattha/guess-the-animal-game-using-python-tkinter}{\textcolor{darkblue}{\faGithub}}]}
-\resumeItemListStart
-  \item A fun game to kill boredom.
-  \item It gives a hint and gives you 5 chances to guess.
-\resumeItemListEnd
+%----------------------------------------------------------------------------------------
+%	Projects SECTION
+%----------------------------------------------------------------------------------------
 
-\resumeProject
-  {Digital clock and calendar:}
-  {Tools: python, tkinter, datetime}
-  {.}
-  {{}[\href{https://github.com/rakshittrattha/digital-clock-with-calendar-using-python-}{\textcolor{darkblue}{\faGithub}}]}
-\resumeItemListStart
-  \item A digital clock with day and date
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-\section{\textbf{Skills}}
-\vspace{-0.4mm}
- \resumeHeadingSkillStart
-  \resumeSubItem{Programming Languages:}
-  \resumeItemListStart
-  \item C
-  \item C++
-  \item Python
-\resumeItemListEnd
-  \resumeSubItem{web development languages:}
-    \resumeItemListStart
-  \item HTML
-  \item CSS
-  \item java scrpit
-\resumeItemListEnd
-  \resumeSubItem{Database languages:}
-    \resumeItemListStart
-  \item SQL
-\resumeItemListEnd
- \resumeHeadingSkillEnd
+\begin{rSection}{PROJECTS}
+\textbf{Population Scrapper} 
+ \begin{itemize}
+    \itemsep -5pt {} 
+     \item Developed a comprehensive web scraping application to extract and analyze country-wise population data from a reputable online source\href{https://github.com/sheen2536/population_scrapper}{(GitHub)}
+     \end{itemize}
+\textbf{Optimal Move in Tic-Tac-Toe} 
+ \begin{itemize}
+    \itemsep -5pt {} 
+     \item Developed an advanced C++ program to determine the optimal move in a Tic-Tac-Toe game using the Minimax algorithm. This project showcased proficiency in algorithm design, game theory, and artificial intelligence principles.\href{https://github.com/sheen2536/tic-tac-toe-finding-the-best-move--cpp-}{(GitHub)} 
+  \end{itemize}
+\textbf{Housing Prices Prediction} 
+ \begin{itemize}
+    \itemsep -2pt {} 
+     \item  Developed a machine learning model to predict housing prices using a dataset sourced from Kaggle. This project involved data preprocessing, feature engineering, and applying linear regression techniques.\href{https://github.com/sheen2536/housingPrices}{(GitHub)}
+  \end{itemize}
+  % \newpage
+  \textbf{Email/SMS Spam Classifier} 
+ \begin{itemize}
+    \itemsep -2pt {} 
+     \item Designed and implemented an email and SMS spam classifier utilizing Python and machine learning techniques. This project involved data preprocessing, feature extraction, and model selection to accurately distinguish between spam and legitimate messages.\href{https://github.com/sheen2536/SMS-SPAM}{(GitHub)}
+  \end{itemize}
+  \textbf{Kernel Hacking} 
+ \begin{itemize}
+    \itemsep -2pt {} 
+     \item Enhanced the Linux kernel by developing and integrating new system calls.
+     \item  Extended the functionality of the xv6 operating system by designing and implementing custom system calls.
+  \end{itemize}
+\end{rSection} 
 
-\section{\textbf{Additional Information}}
-\vspace{-0.4mm}
-\small{
-\textbf{Languages:} Hindi, English, Dogri
+%----------------------------------------------------------------------------------------
+% experience section
+%----------------------------------------------------------------------------------------
 
-\textbf{Interests:} Programming, Volleyball, Swimming.
-}
-\vspace{-4mm}
+\begin{rSection}{EXPERIENCE}
+\textbf{Frontend Development Team Member}\\
+\text{Techvaganza, Annual Fest, NIT Srinagar} \hfill {Aug 2024 - present}
+\end{rSection} 
+
+
 \end{document}
